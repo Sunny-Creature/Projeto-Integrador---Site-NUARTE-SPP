@@ -9,3 +9,12 @@ class Grupos(models.Model):
 class Orientadores(models.Model):
     nome_orientador = models.CharField(max_length=40)
     icone_orientador = models.ImageField(upload_to="icones_orientadores/")
+
+class Eventos(models.Model):
+    nome_evento = models.CharField(max_length=60)
+    img_evento = models.ImageField(upload_to="img_eventos/")
+    descricao = models.CharField(max_length=500)
+
+class Historia(models.Model):
+    img_historia = models.ImageField(upload_to="img_historia/")
+    descricao = models.CharField(max_length=500)

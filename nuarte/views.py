@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from .models import Grupos
-from .models import Orientadores
-from .forms import FormContato
+from nuarte.models import Eventos, Grupos, Historia, Orientadores
+from nuarte.forms import FormContato
 
 # Create your views here.
 
@@ -21,5 +20,22 @@ def index(request):
             print("Salvo com sucesso!")
 
         context['form_contato'] = form
-
     return render(request, "nuarte/index.html", context)
+
+def eventos(request):
+    context = {
+        'eventos': Eventos.objects.all(),
+    }
+    return render(request, "nuarte/eventos.html", context)
+
+def grupos(request):
+    context = {
+        'grupos': Grupos.objects.all(),
+    }
+    return render(request, "nuarte/grupos.html", context)
+
+def historia(request):
+    context = {
+        'historia': Historia.objects.all(),
+    }
+    return render(request, "nuarte/historia.html", context)
